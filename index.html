@@ -1,16 +1,178 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> Ankila Kumari - GIS Portfolio </title>
-  </head>
-  <body>
-    <h1> Welcome to my portfolio</h1>
-    <p> Hello, I am Ankila, a MGIS student at UMN. My intrest area in  GIS is Transportation, health data and web mapping.</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankila Kumari - GIS Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      display: flex;
+    }
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 220px;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2rem;
+    }
+    .sidebar h1 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .sidebar nav a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+    .sidebar nav a:hover {
+      color: #f39c12;
+    }
+    /* Main content */
+    .content {
+      margin-left: 220px;
+      width: calc(100% - 220px);
+      scroll-behavior: smooth;
+    }
+    section {
+      min-height: 100vh;
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #111;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+    }
+  </style>
+</head>
+<body>
 
-    <h2> Projects</h2>
-    <ul>
-      <li><a href= "#"> Emegency Response Route planing</a>a></li>
-      
-    </ul>
-  </body>
+  <div class="sidebar">
+    <h1>Ankila</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#resume">Resume</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <section id="home">
+      <h2>Home</h2>
+      <p>Welcome to my portfolio. I am Ankila Kumari, MGIS student at UMN. I work on GIS, transportation, health data, and web mapping.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I am passionate about using GIS for solving problems in transportation and healthcare. I enjoy creating dashboards, web maps, and writing code.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>ArcGIS Online, ArcGIS Pro</li>
+        <li>Google Earth Engine</li>
+        <li>Python, Java, SQL, HTML, JS</li>
+        <li>Spatial Analysis & Visualization</li>
+        <li>Web Mapping & Dashboards</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Emergency Response Route Planning</h3>
+          <p>Interactive web map for optimizing emergency routes using real-time data.</p>
+        </div>
+        <div class="card">
+          <h3>NYC Traffic Accident Analysis</h3>
+          <p>Analyzed 3,000+ accident records to identify high-risk zones.</p>
+        </div>
+        <div class="card">
+          <h3>Simulating Green Spaces in Minnesota</h3>
+          <p>Simulation tool for urban green space planning.</p>
+        </div>
+        <div class="card">
+          <h3>3D Solar System Model</h3>
+          <p>Interactive 3D visualization of planetary motion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2>Testimonials</h2>
+      <p>"Ankila is a dedicated researcher who combines technical skill with creativity."</p>
+      <p>"She brings passion to GIS projects and always delivers high-quality work."</p>
+    </section>
+
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>Download my resume <a href="Ankila_Resume.pdf" target="_blank">here</a>.</p>
+    </section>
+
+    <section id="certificates">
+      <h2>Certificates</h2>
+      <ul>
+        <li>Esri User Conference Student Assistant – 2025</li>
+        <li>Employee of the Month – Cyient Pvt. Ltd.</li>
+        <li>Star Performer of the Month – Cyient Pvt. Ltd.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:kuma0389@umn.edu">kuma0389@umn.edu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/ankila-kumari-aba90221b/" target="_blank">linkedin.com/in/ankila-kumari</a></p>
+      <p>GitHub: <a href="https://github.com/ankilakumari" target="_blank">github.com/ankilakumari</a></p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Ankila Kumari | Built with GitHub Pages</p>
+    </footer>
+  </div>
+
+</body>
 </html>
