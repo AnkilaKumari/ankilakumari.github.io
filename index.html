@@ -3,23 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ankila Kumari - GIS Portfolio</title>
+  <title>Welcome to my Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   
   <style>
+    /* Home hero: full viewport with centered typewriter */
     #home {
-  background: url("C:\Users\kuma0389\Downloads\COGS_250410_TN_157.jpg") no-repeat center center;
-  background-size: cover;
-  color: rgb(117, 73, 73); /* makes text readable */
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-    #home {
-  background: url('') no-repeat center center;
-  background-size: cover;
-  color: rgb(5, 5, 5); /* makes text readable */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0);
-}
+      position: relative;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+      padding: 0; /* hero fills viewport */
+    }
+    /* Home background image: full width only for #home */
+    #home .home-bg {
+      position: absolute;
+      left: 10;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('C:/Users/kuma0389/Downloads/IMG_5506.jpg') no-repeat center center / cover;
+      z-index: -1; /* behind the inner content which has z-index:1 */
+      pointer-events: none;
+      filter: brightness(0.6);
+    }
+  #home .inner { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 3rem; }
+  /* Hero content */
+  .hero { text-align: center; color: #fff; }
+  .hero h1 { font-size: 2rem; margin-bottom: 1rem; }
+  .typewriter { font-weight: 600; cursor: pointer; display: inline-block; border-right: 2px solid rgba(255,255,255,0.75); padding-right: 6px; }
+  .hero .subtitle { margin-top: 1rem; font-weight: 400; opacity: 0.9; }
+    /* subtitle pop-in animation */
+    .hero .subtitle {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: transform 300ms ease, opacity 300ms ease;
+    }
+    .hero .subtitle.pop {
+      opacity: 1;
+      transform: scale(1);
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -28,7 +54,7 @@
       line-height: 1.6;
       display: flex;
     }
-    /* Sidebar */
+    /* Sidebar  for name only*/
     .sidebar {
       position: fixed;
       top: 0;
@@ -36,15 +62,32 @@
       height: 100%;
       width: 220px;
       background: #111;
-      color: #fff;
+      color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-top: 2rem;
     }
     .sidebar h1 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      margin: 0.5rem 0 0.25rem 0;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .sidebar .subtitle {
+      font-size: 0.75rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+      text-align: center;
+      max-width: 90%;
+    }
+    .sidebar .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.12);
+      margin-bottom: 0.5rem;
     }
     .sidebar nav a {
       color: #fff;
@@ -63,15 +106,15 @@
       scroll-behavior: smooth;
     }
     section {
-      min-height: 100vh;
-      padding: 3rem 2rem;
+      /* no forced full viewport; smaller vertical padding */
+      padding: 0.8rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
     h2 {
       text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
+      margin-bottom: 0.4rem; /* smaller margin between sections */
+      font-size: 1.75rem;
       color: #111;
     }
     .projects {
@@ -95,12 +138,33 @@
       text-align: center;
       padding: 1.5rem;
     }
+    /* --- Scroll / sidebar highlight styles --- */
+    .sidebar {
+      transition: background 300ms ease, color 300ms ease;
+    }
+    .sidebar nav a {
+      transition: color 200ms ease, background 200ms ease, transform 150ms ease;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+    }
+    .sidebar nav a.active {
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      font-weight: 600;
+      transform: translateX(2px);
+    }
+    @media (max-width: 800px) {
+      .sidebar { position: relative; width: 100%; height: auto; display: flex; padding: 1rem; }
+      .content { margin-left: 0; width: 100%; }
+    }
   </style>
 </head>
 <body>
 
   <div class="sidebar">
-    <h1>Ankila</h1>
+    <img class="avatar" src="C:\\Users\\kuma0389\\Downloads\\COGS_250410_TN_157.jpg" alt="Ankila avatar">
+    <div class="subtitle">MGIS • GIS • Web Mapping</div>
+    <h1>Ankila Kumari</h1>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -114,15 +178,26 @@
   </div>
 
   <div class="content">
-    <section id="home">
-      <h2>Home</h2>
-      <p>Welcome to my portfolio. I am Ankila Kumari, MGIS student at UMN. I work on GIS, transportation, health data, and web mapping.</p>
+    <section id="home" data-color="#2b6cb0">
+      <div class="home-bg" aria-hidden="true"></div>
+      <div class="inner">
+        <div class="hero" role="banner">
+          <h1>Welcome to my Portfolio</h1>
+          <div class="typewriter" id="typewriter" tabindex="0" title="Click to jump to projects"></div>
+          <div class="subtitle">MGIS • GIS • Web Mapping</div>
+        </div>
+        <!-- keep original intro for accessibility (hidden visually on hero) -->
+        <div class="sr-only" style="display:none;">
+          <p>Hi there! Welcome to my portfolio. I’m Ankila Kumari, currently studying MGIS at the University of Minnesota. I’m also pursuing my minor in Computer Science.</p>
+          <p>My work focuses on GIS, transportation, health data, and web mapping.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="about">
+  <section id="about" data-color="#6b46c1">
   <h2>About Me</h2>
   <img src="C:\Users\kuma0389\Downloads\COGS_250410_TN_157.jpg" alt="Ankila Kumari" style="width:250px;  display:block; margin:auto;">
-  <h2>About Me</h2>
+  
 
 <p>Hi, I’m Ankila Kumari. I’m from Bihar, India, and my journey into the world of GIS started after completing my undergraduate degree in Automobile Engineering. I worked as an Associate GIS Specialist at Cyient Pvt. Ltd., where I was part of projects involving satellite imagery, linear reference image (LRI), and spatial data analysis.</p>
 
@@ -150,7 +225,7 @@
 </section>
 
 
-    <section id="skills">
+  <section id="skills" data-color="#38a169">
       <h2>Skills</h2>
       <ul>
         <li>ArcGIS Online, ArcGIS Pro</li>
@@ -161,7 +236,7 @@
       </ul>
     </section>
 
-    <section id="projects">
+  <section id="projects" data-color="#dd6b20">
       <h2>Projects</h2>
       <div class="projects">
         <div class="card">
@@ -183,18 +258,18 @@
       </div>
     </section>
 
-    <section id="testimonials">
+  <section id="testimonials" data-color="#d53f8c">
       <h2>Testimonials</h2>
       <p>"Ankila is a dedicated researcher who combines technical skill with creativity."</p>
       <p>"She brings passion to GIS projects and always delivers high-quality work."</p>
     </section>
 
-    <section id="resume">
+  <section id="resume" data-color="#4a5568">
       <h2>Resume</h2>
       <p>Download my resume <a href="C:\Users\kuma0389\Downloads\Ankila's__Resume.pdf" target="_blank">here</a>.</p>
     </section>
 
-    <section id="certificates">
+  <section id="certificates" data-color="#805ad5">
       <h2>Certificates</h2>
       <ul>
         <li>Esri User Conference Student Assistant – 2025</li>
@@ -203,7 +278,7 @@
       </ul>
     </section>
 
-    <section id="contact">
+  <section id="contact" data-color="#2c7a7b">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:kuma0389@umn.edu">kuma0389@umn.edu</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/ankila-kumari-aba90221b/" target="_blank">linkedin.com/in/ankila-kumari</a></p>
@@ -214,6 +289,82 @@
       <p>&copy; 2025 Ankila Kumari | Built with GitHub Pages</p>
     </footer>
   </div>
+  </div>
+
+  <script>
+    // Scroll-driven sidebar color + active link highlight
+    (function(){
+      const sidebar = document.querySelector('.sidebar');
+      const navLinks = Array.from(document.querySelectorAll('.sidebar nav a'));
+      const sections = Array.from(document.querySelectorAll('section'));
+
+      // Map id -> link
+      const linkById = {};
+      navLinks.forEach(link => {
+        const id = link.getAttribute('href').replace('#','');
+        linkById[id] = link;
+        // click -> smooth scroll handled by CSS, ensure focus
+        link.addEventListener('click', () => {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const color = entry.target.dataset.color || '#111';
+            // update sidebar bg color
+            sidebar.style.background = color;
+            // update link active state
+            navLinks.forEach(l => l.classList.remove('active'));
+            const active = linkById[id];
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { root: null, rootMargin: '0px', threshold: 0.55 });
+
+      sections.forEach(s => io.observe(s));
+    })();
+  </script>
+
+  <script>
+    // Typewriter text and click-to-scroll
+    (function(){
+      const lines = [
+        'My work focuses on GIS, transportation, health data, and web mapping.'
+      ];
+      const el = document.getElementById('typewriter');
+      if (!el) return;
+      let lineIndex = 0, charIndex = 0;
+
+      function type() {
+        const text = lines[lineIndex];
+        if (charIndex <= text.length) {
+          el.textContent = text.slice(0, charIndex);
+          charIndex++;
+          setTimeout(type, 40);
+        } else {
+          // after typing, remove cursor and show subtitle
+          el.style.borderRight = 'none';
+          const subtitle = document.querySelector('.hero .subtitle');
+          if (subtitle) subtitle.classList.add('pop');
+        }
+      }
+      // start typing after short delay
+      setTimeout(type, 600);
+
+      function goToProjects() {
+        const target = document.getElementById('projects');
+        if (target) target.scrollIntoView({behavior:'smooth'});
+        const subtitle = document.querySelector('.hero .subtitle');
+        if (subtitle) subtitle.classList.add('pop');
+      }
+      el.addEventListener('click', goToProjects);
+      el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToProjects(); } });
+    })();
+  </script>
 
 </body>
 </html>
