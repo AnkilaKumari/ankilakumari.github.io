@@ -30,7 +30,7 @@
       pointer-events: none;
       filter: brightness(0.6);
     }
-  #home .inner { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 3rem; }
+  #home .inner { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 2rem; }
   /* Hero content */
   .hero { text-align: center; color: #fff; }
   .hero h1 { font-size: 2rem; margin-bottom: 1rem; }
@@ -145,13 +145,16 @@
     .sidebar nav a {
       transition: color 200ms ease, background 200ms ease, transform 150ms ease;
       padding: 0.35rem 0.5rem;
-      border-radius: 6px;
+      border-radius: 40px;
     }
-    .sidebar nav a.active {
-      background: rgba(0,0,0,0.25);
+    .sidebar nav a.active {  /*something to chnage here*/
+      background: rgba(0,0,0,0.18); /* slightly lighter */
       color: #fff;
       font-weight: 600;
-      transform: translateX(2px);
+      padding: 0.27rem 0.5rem; /* keep same as normal links */
+      border-radius: 16px;      /* less rounded */
+      /* Remove or reduce transform if not needed */
+      transform: none;
     }
     @media (max-width: 800px) {
       .sidebar { position: relative; width: 100%; height: auto; display: flex; padding: 1rem; }
